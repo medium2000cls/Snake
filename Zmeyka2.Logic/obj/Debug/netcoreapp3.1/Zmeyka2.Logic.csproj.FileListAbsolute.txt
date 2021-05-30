@@ -1,0 +1,9 @@
+C:\Users\79053\source\repos\Zmeyka2.Logic\bin\Debug\netcoreapp3.1\Zmeyka2.Logic.deps.json
+C:\Users\79053\source\repos\Zmeyka2.Logic\bin\Debug\netcoreapp3.1\Zmeyka2.Logic.dll
+C:\Users\79053\source\repos\Zmeyka2.Logic\bin\Debug\netcoreapp3.1\Zmeyka2.Logic.pdb
+C:\Users\79053\source\repos\Zmeyka2.Logic\obj\Debug\netcoreapp3.1\Zmeyka2.Logic.csprojAssemblyReference.cache
+C:\Users\79053\source\repos\Zmeyka2.Logic\obj\Debug\netcoreapp3.1\Zmeyka2.Logic.AssemblyInfoInputs.cache
+C:\Users\79053\source\repos\Zmeyka2.Logic\obj\Debug\netcoreapp3.1\Zmeyka2.Logic.AssemblyInfo.cs
+C:\Users\79053\source\repos\Zmeyka2.Logic\obj\Debug\netcoreapp3.1\Zmeyka2.Logic.csproj.CoreCompileInputs.cache
+C:\Users\79053\source\repos\Zmeyka2.Logic\obj\Debug\netcoreapp3.1\Zmeyka2.Logic.dll
+C:\Users\79053\source\repos\Zmeyka2.Logic\obj\Debug\netcoreapp3.1\Zmeyka2.Logic.pdb

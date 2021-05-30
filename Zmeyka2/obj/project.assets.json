@@ -1,0 +1,99 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "Zmeyka2.Logic/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/Zmeyka2.Logic.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Zmeyka2.Logic.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Zmeyka2.Logic/1.0.0": {
+      "type": "project",
+      "path": "../Zmeyka2.Logic/Zmeyka2.Logic.csproj",
+      "msbuildProject": "../Zmeyka2.Logic/Zmeyka2.Logic.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    ".NETCoreApp,Version=v3.1": [
+      "Zmeyka2.Logic >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\79053\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "D:\\Проекты\\Snake\\Zmeyka2\\Zmeyka2.csproj",
+      "projectName": "Zmeyka2",
+      "projectPath": "D:\\Проекты\\Snake\\Zmeyka2\\Zmeyka2.csproj",
+      "packagesPath": "C:\\Users\\79053\\.nuget\\packages\\",
+      "outputPath": "D:\\Проекты\\Snake\\Zmeyka2\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\79053\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "netcoreapp3.1"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "projectReferences": {
+            "D:\\Проекты\\Snake\\Zmeyka2.Logic\\Zmeyka2.Logic.csproj": {
+              "projectPath": "D:\\Проекты\\Snake\\Zmeyka2.Logic\\Zmeyka2.Logic.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "netcoreapp3.1": {
+        "targetAlias": "netcoreapp3.1",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[3.1.15, 3.1.15]"
+          }
+        ],
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          },
+          "Microsoft.WindowsDesktop.App.WindowsForms": {
+            "privateAssets": "none"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

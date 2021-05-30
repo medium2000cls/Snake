@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "Zmeyka2.Logic/1.0.0": {
+        "runtime": {
+          "Zmeyka2.Logic.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Zmeyka2.Logic/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
