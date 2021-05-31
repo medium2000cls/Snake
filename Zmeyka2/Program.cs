@@ -19,7 +19,7 @@ namespace Zmeyka2
 
             MainForm form = new MainForm();
             GameControler GC = new GameControler();
-            //Presenter presenter = new Presenter(form, GC);
+            Presenter presenter = new Presenter(form, GC);
             
             Application.Run(form);
         }
