@@ -102,32 +102,21 @@ namespace Zmeyka2
         private void _view_KeyRightEventHandler(object sender, EventArgs e)
         {
             _gameControler.MovementDg = _gameControler.MoveRight;
-            // _gameControler.StartWorking();
-            
         }
 
         private void _view_KeyLeftEventHandler(object sender, EventArgs e)
         {
             _gameControler.MovementDg = _gameControler.MoveLeft;
-
-            // _gameControler.StartWorking();
-
         }
 
         private void _view_KeyDownEventHandler(object sender, EventArgs e)
         {
             _gameControler.MovementDg = _gameControler.MoveDown;
-
-            // _gameControler.StartWorking();
-
         }
 
         private void _view_KeyUpEventHandler(object sender, EventArgs e)
         {
             _gameControler.MovementDg = _gameControler.MoveUp;
-
-            // _gameControler.StartWorking();
-
         }
 
         #endregion

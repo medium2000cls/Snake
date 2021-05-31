@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Timers;
 using System.Windows.Forms;
+using Timer = System.Timers.Timer;
 
 namespace Zmeyka2
 {
@@ -34,14 +35,16 @@ namespace Zmeyka2
         public event EventHandler TimerStepEventHendler;
         public event EventHandler ClickStartEventHendler;
 
+        private Timer _timer = new Timer(100);
+        
         public bool TimerIsEnabled
         {
-            get => timer.Enabled;
-            set => timer.Enabled = value;
+            get => _timer.Enabled;
+            set => _timer.Enabled = value;
         }
 
         private List<PictureBox> _pictureBoxes = new List<PictureBox>(200);
-        private int ScaleK = 15;
+        private int ScaleK = 12;
         
         public MainForm()
         {
@@ -49,10 +52,19 @@ namespace Zmeyka2
             
             buttonStart.PreviewKeyDown += OnPreviewKeyDown;
             this.KeyDown += OnKeyDown;
-            
-            timer.Enabled = false;
-            timer.Interval = 20;
-            timer.Elapsed += TimerOnElapsed;
+
+            _timer.AutoReset = true;
+            _timer.Elapsed += TimerOnElapsed;
+        }
+
+        private void TimerOnElapsed(object sender, ElapsedEventArgs e)
+        {
+            TimerStepEventHendler(this, EventArgs.Empty);
+        }
+        private void buttonStart_Click(object sender, EventArgs e)
+        {
+            TimerStart();
+            if (ClickStartEventHendler != null) ClickStartEventHendler(this, EventArgs.Empty);
         }
 
         private void OnPreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
@@ -82,11 +94,12 @@ namespace Zmeyka2
 
         public void TimerStart()
         {
-            timer.Start();
+            _timer.Start();
         }
+
         public void TimerStop()
         {
-            timer.Stop();
+            _timer.Stop();
         }
 
         public void NewBoxes(List<ValueTuple<int,int,Color>> tupleList)
@@ -96,6 +109,7 @@ namespace Zmeyka2
                 AddBoxes(el.Item1, el.Item2, el.Item3);
             }
         }
+
         public void UpdateBoxes (List<ValueTuple<int,int,Color>> tupleList)
         {                
             int i = 0;
@@ -106,21 +120,21 @@ namespace Zmeyka2
                 i++;
             }
         }
-        
-        
-        
+
+
         private void ChangeBoxes(PictureBox pictureBox, Color color)
         {
             pictureBox.BackColor = color;
             
         }
+
         private void AddBoxes(int X, int Y, Color color)
         {
             PictureBox box = CreateOneBox(X, Y, color);
             _pictureBoxes.Add(box);
             Controls.Add(box);
         }
-        
+
         private PictureBox CreateOneBox(int X, int Y, Color color)
         {
             var originCoord = (X: 20, Y:20);
@@ -132,18 +146,6 @@ namespace Zmeyka2
             pb.TabIndex = 0;
             pb.Name = $"Box {X} {Y}";
             return pb;
-        }
-
-        
-        private void TimerOnElapsed(object sender, ElapsedEventArgs e)
-        {
-            label.Text = e.SignalTime.ToString();
-            TimerStepEventHendler(this, EventArgs.Empty);
-        }
-        private void buttonStart_Click(object sender, EventArgs e)
-        {
-            TimerStart();
-            if (ClickStartEventHendler != null) ClickStartEventHendler(this, EventArgs.Empty);
         }
     }
 }

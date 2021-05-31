@@ -15,10 +15,9 @@ namespace Zmeyka2.Logic
         public void ChangeTheMap(List<Coordinate> coordinates, Condition condition); //Изменить карту
         public Coordinate RandomEmptyCoord();
         public void AddApple(); //Добавить яблоко на карту
+        public void AddApple(int i);
         public void AddObstacle(); //Добавить препятствие на карту
         public void RemoveApple(); //Удалить яблоко с карты
-        
-        
     }
 
 
@@ -60,7 +59,10 @@ namespace Zmeyka2.Logic
         }
         public void AddApple()
         {
-            int elMap = AppleCount;
+            AddApple(AppleCount);
+        }
+        public void AddApple(int elMap)
+        {
             AddObjectOnMap(elMap, Condition.Apple, Condition.Empty);
         }
         public void AddObstacle()
