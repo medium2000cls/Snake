@@ -33,14 +33,11 @@ namespace Zmeyka2
             this.BoxPlayer = new System.Windows.Forms.PictureBox();
             this.BoxApple = new System.Windows.Forms.PictureBox();
             this.BoxObstacle = new System.Windows.Forms.PictureBox();
-            this.timer = new System.Timers.Timer();
             this.buttonStart = new System.Windows.Forms.Button();
-            this.label = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize) (this.BoxEmpty)).BeginInit();
             ((System.ComponentModel.ISupportInitialize) (this.BoxPlayer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize) (this.BoxApple)).BeginInit();
             ((System.ComponentModel.ISupportInitialize) (this.BoxObstacle)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize) (this.timer)).BeginInit();
             this.SuspendLayout();
             // 
             // BoxEmpty
@@ -83,17 +80,10 @@ namespace Zmeyka2
             this.BoxObstacle.TabIndex = 3;
             this.BoxObstacle.TabStop = false;
             // 
-            // timer
-            // 
-            this.timer.Enabled = true;
-            this.timer.Interval = 500D;
-            this.timer.SynchronizingObject = this;
-            this.timer.Elapsed += new System.Timers.ElapsedEventHandler(this.TimerOnElapsed);
-            // 
             // buttonStart
             // 
             this.buttonStart.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonStart.Location = new System.Drawing.Point(327, 12);
+            this.buttonStart.Location = new System.Drawing.Point(484, 12);
             this.buttonStart.Name = "buttonStart";
             this.buttonStart.Size = new System.Drawing.Size(75, 23);
             this.buttonStart.TabIndex = 4;
@@ -101,22 +91,13 @@ namespace Zmeyka2
             this.buttonStart.UseVisualStyleBackColor = true;
             this.buttonStart.Click += new System.EventHandler(this.buttonStart_Click);
             // 
-            // label
-            // 
-            this.label.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label.Location = new System.Drawing.Point(0, 474);
-            this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(414, 23);
-            this.label.TabIndex = 5;
-            // 
             // MainForm
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.ClientSize = new System.Drawing.Size(414, 497);
-            this.Controls.Add(this.label);
+            this.ClientSize = new System.Drawing.Size(571, 731);
             this.Controls.Add(this.buttonStart);
             this.Controls.Add(this.BoxObstacle);
             this.Controls.Add(this.BoxApple);
@@ -131,16 +112,10 @@ namespace Zmeyka2
             ((System.ComponentModel.ISupportInitialize) (this.BoxPlayer)).EndInit();
             ((System.ComponentModel.ISupportInitialize) (this.BoxApple)).EndInit();
             ((System.ComponentModel.ISupportInitialize) (this.BoxObstacle)).EndInit();
-            ((System.ComponentModel.ISupportInitialize) (this.timer)).EndInit();
             this.ResumeLayout(false);
         }
 
-        private System.Windows.Forms.Label label;
-
         private System.Windows.Forms.Button buttonStart;
-
-        private System.Timers.Timer timer;
-
 
         #endregion
 

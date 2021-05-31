@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Linq;
+
 
 namespace Zmeyka2.Logic
 {
@@ -13,23 +16,19 @@ namespace Zmeyka2.Logic
         public IMap MapE { get; private set; }
         public ISnake SnakeE { get; private set; }
         public MoveDg MovementDg { private get; set; }
-        // public EventWaitHandle ewh;
-        
-        //public event EventHandler<Coordinate [,]> CoordInfoEventHendler;
 
         public GameControler()
         {
             MapE = new Map();
             SnakeE = new Snake();
-            // ewh = new EventWaitHandle(false, EventResetMode.ManualReset);
             MovementDg = MoveLeft;
         }
 
         public void Start()                //TODO Метод старт
         {
-            MapE.SetMapSize(20, 30);
+            MapE.SetMapSize(40, 50);
             MapE.ObstacleDensityPercent = 0;
-            MapE.AppleCount = 3;
+            MapE.AppleCount = 2;
             MapE.MakeAMap();
 
             SetLvl();
@@ -52,21 +51,10 @@ namespace Zmeyka2.Logic
 
         #region Методы движения
 
-        // public void StartWorking()
-        // {
-        //     ewh.Set();
-        // }
-        // public void StopWorking()
-        // {
-        //     ewh.Reset();
-        // }
-
         public void MoveUp()
         {
             Coordinate head = SnakeE.Body[0];
-
             int sizeY = MapE.MapCoordinates.GetLength(1) - 1;
-
             if (head.Y == 0)
             {
                 SnakeE.NextStep = MapE.MapCoordinates[head.X, sizeY];
@@ -75,14 +63,19 @@ namespace Zmeyka2.Logic
             {
                 SnakeE.NextStep = MapE.MapCoordinates[head.X, head.Y - 1];
             }
+
+            if (SnakeE.Body.Count > 1 && SnakeE.NextStep == SnakeE.Body[1])
+            {
+                MoveDown();
+            }   
+
+            
         }
 
         public void MoveDown()
         {
             Coordinate head = SnakeE.Body[0];
-
             int sizeY = MapE.MapCoordinates.GetLength(1) - 1;
-
             if (head.Y == sizeY)
             {
                 SnakeE.NextStep = MapE.MapCoordinates[head.X, 0];
@@ -91,14 +84,17 @@ namespace Zmeyka2.Logic
             {
                 SnakeE.NextStep = MapE.MapCoordinates[head.X, head.Y + 1];
             }
+            if (SnakeE.Body.Count > 1 && SnakeE.NextStep == SnakeE.Body[1])
+            {
+                MoveUp();
+            }
+
         }
 
         public void MoveLeft()
         {
             Coordinate head = SnakeE.Body[0];
-
             int sizeX = MapE.MapCoordinates.GetLength(0) - 1;
-
             if (head.X == 0)
             {
                 SnakeE.NextStep = MapE.MapCoordinates[sizeX, head.Y];
@@ -107,14 +103,17 @@ namespace Zmeyka2.Logic
             {
                 SnakeE.NextStep = MapE.MapCoordinates[head.X-1, head.Y];
             }
+            if (SnakeE.Body.Count > 1 && SnakeE.NextStep == SnakeE.Body[1])
+            {
+                MoveRight();
+            }
+
         }
 
         public void MoveRight()
         {
             Coordinate head = SnakeE.Body[0];
-
             int sizeX = MapE.MapCoordinates.GetLength(0) - 1;
-
             if (head.X == sizeX)
             {
                 SnakeE.NextStep = MapE.MapCoordinates[0, head.Y];
@@ -123,6 +122,11 @@ namespace Zmeyka2.Logic
             {
                 SnakeE.NextStep = MapE.MapCoordinates[head.X+1, head.Y];
             }
+            if (SnakeE.Body.Count > 1 && SnakeE.NextStep == SnakeE.Body[1])
+            {
+                MoveLeft();
+            }
+
         }
 
         #endregion
@@ -142,6 +146,7 @@ namespace Zmeyka2.Logic
                 MapE.ChangeTheMap(SnakeE.Body, Condition.Empty);
                 SnakeE.IncreaseBody();
                 MapE.ChangeTheMap(SnakeE.Body, Condition.Player);
+                MapE.AddApple(25);
                 return true;
             }
             else if (SnakeE.NextStep.ConditionSection == Condition.Obstacle)
@@ -154,10 +159,5 @@ namespace Zmeyka2.Logic
             }
         }
         
-        // Событие срабатывания внутреннего таймера
-        // protected virtual void OnCoordInfoEventHendler(Coordinate [,] e)
-        // {
-        //     CoordInfoEventHendler.Invoke(this, e);
-        // }
     }
 }

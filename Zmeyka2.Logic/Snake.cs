@@ -24,25 +24,21 @@ namespace Zmeyka2.Logic
         {
             Body = new List<Coordinate>(20);
         }
-
         public void AppearanceOnMap(Coordinate coordinate)
         {
             coordinate.ConditionSection = Condition.Player;
             Body.Insert(0,coordinate);
         }
-
         public void Movement()
         {
             NextStep.ConditionSection = Condition.Player;
             Body.Insert(0,NextStep);
             Body.RemoveAt(Body.Count-1);
         }
-
         public void IncreaseBody()
         {
             NextStep.ConditionSection = Condition.Player;
             Body.Insert(0, NextStep);
         }
-
     }
 }
